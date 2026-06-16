@@ -17,10 +17,14 @@ Deux canaux d'installation, depuis ce dépôt GitHub public.
 commité, partagé avec l'équipe ; recommandé pour démarrer) :
 
 ```bash
-# dans ton projet (existant ou neuf)
-npx skills add Loulen/prompt-driven-software-factory
-# sélectionne au moins build-factory (+ les autres), cible claude-code
+# dans ton projet (existant ou neuf) — cible Claude Code pour écrire dans .claude/skills/
+npx skills add Loulen/prompt-driven-software-factory -a claude-code
 ```
+
+> Garde **`-a claude-code`** : c'est ce qui **copie** les skills dans `.claude/skills/` (le
+> dossier que Claude Code lit). Sans ce flag, l'outil peut cibler plusieurs agents et écrire
+> dans `.agents/skills/` — invisible pour Claude Code sans un symlink
+> `.claude/skills -> ../.agents/skills`.
 
 Puis, dans le projet : **`/build-factory`**.
 
